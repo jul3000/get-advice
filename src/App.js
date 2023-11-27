@@ -29,7 +29,7 @@ function App() {
       </div>
 
       <div className='container'>
-        <button onClick={getAdvice}>Get new advice</button>
+        <button onClick={getAdvice}>New advice</button>
       </div>
     </div>
     

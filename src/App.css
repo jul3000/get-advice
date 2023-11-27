@@ -39,8 +39,11 @@ button {
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(86,202,209,1) 100%);
   font-size: 15px;
   color: #73A9AD;
-  text-transform: uppercase;
   font-family: 'Vollkorn', serif;
+}
+
+button:hover {
+  text-transform: uppercase;
 }
 
 @media all and  (max-width: 800px) {
