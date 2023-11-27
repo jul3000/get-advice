@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import video from './video.mp4';
 
 function App() {
+  const [advice, setAdvice] = useState ("");
+
+  useEffect (() => {
+    getAdvice()
+  }, [])
+
+  const getAdvice = async () => {
+    const response= await fetch (`http://www.boredapi.com/api/activity/`);
+    const data = await response.json();
+    setAdvice(data.activity);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+        <div className="container">
+          <video autoPlay muted loop playsInline>
+            <source src={video} type="video/mp4" />
+          </video>
+          <h1>Here it is your advice what to do today</h1>
+        </div>
+
+      <div className='container'>
+        <h2>"{advice}"</h2>
+      </div>
+
+      <div className='container'>
+        <button onClick={getAdvice}>Get new advice</button>
+      </div>
     </div>
+    
   );
 }
 
